@@ -1,3 +1,10 @@
+<?php
+ob_start();
+require_once('includes/load.php');
+if($session->isUserLoggedIn(true)) {
+   header("location:body_page.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +12,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Pages / Login - GoodWhich</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,7 +71,7 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" method="post" action="auth.php" novalidate>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>

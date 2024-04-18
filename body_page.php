@@ -1,7 +1,7 @@
   <?php
   include 'header.php';
   include 'sidebar.php';
-  
+  require_once 'includes/load.php';
   ?>
 
   
@@ -16,6 +16,7 @@
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
+      <?php echo display_msg($msg); ?>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
