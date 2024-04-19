@@ -1,7 +1,8 @@
   <?php
+  require_once 'includes/load.php';
   include 'header.php';
   include 'sidebar.php';
-  require_once 'includes/load.php';
+  
   ?>
 
   

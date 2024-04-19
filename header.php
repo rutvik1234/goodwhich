@@ -1,5 +1,4 @@
 <?php
-include "includes/load.php";
  $user = current_user(); ?>
 <!DOCTYPE html>
 <html lang="en">

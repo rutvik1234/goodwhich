@@ -30,7 +30,7 @@
   </li><!-- End Components Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="categories.php">
+    <a class="nav-link collapsed" href="categorie.php">
       <i class="bi bi-journal-text"></i><span>Categories</span></i>
     </a>
    
