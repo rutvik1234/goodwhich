@@ -1,4 +1,5 @@
 <?php
+include_once 'includes/load.php';
 include 'header.php';
 include 'sidebar.php';
 ?>
@@ -33,8 +34,13 @@ include 'sidebar.php';
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
-                    <label for="floatingLastName">Categories</label>
+                  <select class="form-control" name="product-categorie">
+                      <option value="">Select Product Category</option>
+                    <?php  foreach ($all_categories as $cat): ?>
+                      <option value="<?php echo (int)$cat['id'] ?>">
+                        <?php echo $cat['name'] ?></option>
+                    <?php endforeach; ?>
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">

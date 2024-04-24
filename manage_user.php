@@ -1,4 +1,5 @@
 <?php
+include_once 'includes/load.php';
 include 'header.php';
 include 'sidebar.php';
 ?>
