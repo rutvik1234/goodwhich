@@ -47,7 +47,7 @@ function display_msg($msg =''){
    $output = array();
    if(!empty($msg)) {
       foreach ($msg as $key => $value) {
-         $output  = "<div class=\"alert alert-{$key}\">";
+         $output  = "<div class=\"alert alert-{$key}\"> ";
          $output .= "<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>";
          $output .= remove_junk(first_character($value));
          $output .= "</div>";
