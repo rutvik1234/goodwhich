@@ -1,6 +1,10 @@
 <?php
+$page_title = 'All Product';
+include_once "includes/load.php";
+$products = join_product_table();
 include 'header.php';
 include 'sidebar.php';
+
 ?>
 
 <main id="main" class="main">
@@ -19,7 +23,7 @@ include 'sidebar.php';
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
-
+      <?php echo display_msg($msg); ?>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Products</h5>
@@ -38,108 +42,26 @@ include 'sidebar.php';
                 </tr>
               </thead>
               <tbody>
+              <?php foreach ($products as $product){?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Product 1</td>
-                  <td>Categories 1</td>
-                  <td>22</td>
-                  <td>12/2/2024</td>
+                <th scope="row"><?php echo count_id(); ?></th>
+                <td> <img class="img-avatar img-circle" src="<?php echo $product['image']; ?>" alt="Image" width="100" height="100"></td>
+                <td> <?php echo remove_junk($product['name']); ?></td>
+                <td class="text-center"> <?php echo remove_junk($product['categorie']); ?></td>
+                <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
+                <td class="text-center"> <?php echo read_date($product['date']); ?></td>
                   <td>
                     <div class="btn-group">
-                      <a class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
+                      <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
                         <i class="ri-edit-2-line"></i>
                       </a>
-                      <a class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
+                      <a href="delete_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
                         <i class="ri-delete-bin-line"></i>
                       </a>
                     </div>
                   </td>
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Product 1</td>
-                  <td>Categories 1</td>
-                  <td>22</td>
-                  <td>12/2/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
-                        <i class="ri-edit-2-line"></i>
-                      </a>
-                      <a class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
-                        <i class="ri-delete-bin-line"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Product 1</td>
-                  <td>Categories 1</td>
-                  <td>22</td>
-                  <td>12/2/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
-                        <i class="ri-edit-2-line"></i>
-                      </a>
-                      <a class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
-                        <i class="ri-delete-bin-line"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Product 1</td>
-                  <td>Categories 1</td>
-                  <td>22</td>
-                  <td>12/2/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
-                        <i class="ri-edit-2-line"></i>
-                      </a>
-                      <a class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
-                        <i class="ri-delete-bin-line"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Product 1</td>
-                  <td>Categories 1</td>
-                  <td>22</td>
-                  <td>12/2/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
-                        <i class="ri-edit-2-line"></i>
-                      </a>
-                      <a class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
-                        <i class="ri-delete-bin-line"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Product 1</td>
-                  <td>Categories 1</td>
-                  <td>22</td>
-                  <td>12/2/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a class="btn btn-info btn-xs" title="Edit" data-toggle="tooltip">
-                        <i class="ri-edit-2-line"></i>
-                      </a>
-                      <a class="btn btn-danger btn-xs" title="Delete" data-toggle="tooltip">
-                        <i class="ri-delete-bin-line"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
+                <?php }?>
               </tbody>
             </table>
             <!-- End Table with stripped rows -->

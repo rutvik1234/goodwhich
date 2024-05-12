@@ -77,40 +77,40 @@ class  Media {
  /*--------------------------------------------------------------*/
  /* Function for Process media file
  /*--------------------------------------------------------------*/
-  public function process_media(){
-    if(!empty($this->errors)){
-        return false;
-      }
-    if(empty($this->fileName) || empty($this->fileTempPath)){
-        $this->errors[] = "The file location was not available.";
-        return false;
-      }
+  // public function process_media(){
+  //   if(!empty($this->errors)){
+  //       return false;
+  //     }
+  //   if(empty($this->fileName) || empty($this->fileTempPath)){
+  //       $this->errors[] = "The file location was not available.";
+  //       return false;
+  //     }
 
-    if(!is_writable($this->productPath)){
-        $this->errors[] = $this->productPath." Must be writable!!!.";
-        return false;
-      }
+  //   if(!is_writable($this->productPath)){
+  //       $this->errors[] = $this->productPath." Must be writable!!!.";
+  //       return false;
+  //     }
 
-    if(file_exists($this->productPath."/".$this->fileName)){
-      $this->errors[] = "The file {$this->fileName} already exists.";
-      return false;
-    }
+  //   if(file_exists($this->productPath."/".$this->fileName)){
+  //     $this->errors[] = "The file {$this->fileName} already exists.";
+  //     return false;
+  //   }
 
-    if(move_uploaded_file($this->fileTempPath,$this->productPath.'/'.$this->fileName))
-    {
+  //   if(move_uploaded_file($this->fileTempPath,$this->productPath.'/'.$this->fileName))
+  //   {
 
-      if($this->insert_media()){
-        unset($this->fileTempPath);
-        return true;
-      }
+  //     if($this->insert_media()){
+  //       unset($this->fileTempPath);
+  //       return true;
+  //     }
 
-    } else {
+  //   } else {
 
-      $this->errors[] = "The file upload failed, possibly due to incorrect permissions on the upload folder.";
-      return false;
-    }
+  //     $this->errors[] = "The file upload failed, possibly due to incorrect permissions on the upload folder.";
+  //     return false;
+  //   }
 
-  }
+  // }
   /*--------------------------------------------------------------*/
   /* Function for Process user image
   /*--------------------------------------------------------------*/

@@ -210,15 +210,22 @@ function tableExists($table){
    /*--------------------------------------------------------------*/
   function join_product_table(){
      global $db;
-     $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  .=" AS categorie,m.file_name AS image";
+     $sql  =" SELECT p.id,p.name,p.quantity,p.date,p.image,c.name";
+    $sql  .=" AS categorie";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
-    $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
     $sql  .=" ORDER BY p.id ASC";
     return find_by_sql($sql);
 
    }
+
+  //  fuction for find categories in kitchen panel
+
+  function find_kitchen_product(){
+    global $db;
+    $sql = "SELECT * FROM categories";
+    return find_by_sql($sql);
+  }
   /*--------------------------------------------------------------*/
   /* Function for Finding all product name
   /* Request coming from ajax.php for auto suggest
